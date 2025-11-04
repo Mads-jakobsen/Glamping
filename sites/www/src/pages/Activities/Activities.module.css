@@ -1,0 +1,7 @@
+.background {
+
+  background-image: url('../../assets/image_04.jpg'); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
