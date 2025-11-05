@@ -1,0 +1,42 @@
+
+.stay{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  
+  background-color: #33626C;
+  color: #FFF
+  
+  
+ 
+  
+}
+
+.stay img{
+  max-width: 182px;
+  width:100%;
+  border-radius: 50%;
+}
+
+
+h3{
+   font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 64px;
+  
+
+
+}
+
+
+.stays{
+background-color: #829B97;
+  
+  border-radius: 10px 0 10px 0; 
+  color: #FFF;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+}

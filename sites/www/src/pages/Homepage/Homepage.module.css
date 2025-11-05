@@ -1,7 +1,71 @@
 .background {
-
   background-image: url('../../assets/image_00.jpg'); 
   background-size: cover;
   background-position: center;
-  color: white;
+  background-repeat: no-repeat;
+  color: #FFF;
+  
+  
 }
+
+.imageContainer img {
+  height: 50px;
+   
+ 
+  
+  
+}
+
+
+
+h2{
+     font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+}
+
+
+
+h1 {
+  margin: 20px 0 20px 0;  
+     font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 96px;
+
+   
+  
+}
+
+
+
+  .Book {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px 0 10px 0; 
+  color: #FFF;
+  padding: 10px 30px;
+  cursor: pointer;
+     font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  
+
+}
+
+ .imageContainer {
+
+  display: grid;
+  place-items: center;  
+              
+  text-align: center;
+ padding: 80px;
+
+ 
+}
+
+
+
+

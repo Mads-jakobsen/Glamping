@@ -1,9 +1,10 @@
  .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 1.5rem 1.5rem;
     /* background-color:  #829B97; */
+    background-color:#829B97;
     color: white;
     position: relative;
     z-index: 10;

@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+
 import Footer from "./components/Footer/Footer";
 import Styles from './App.module.css'
 import Homepage from "./pages/Homepage/Homepage";
 import Stays from "./pages/Stays/Stays";
 import Activities from "./pages/Activities/Activities";
 import Contact from "./pages/Contact/Contact";
+
 
 
 
@@ -21,6 +22,7 @@ return (
     <Route path="/Stays" element={<Stays />} />
     <Route path="/Activities" element={<Activities />} />
     <Route path="/Contact" element={<Contact />} />
+    
 
 
 </Routes>
