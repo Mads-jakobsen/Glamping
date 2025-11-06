@@ -4,7 +4,6 @@
     align-items: center;
     padding: 1.5rem 1.5rem;
     /* background-color:  #829B97; */
-    background-color:#829B97;
     color: white;
     position: relative;
     z-index: 10;
@@ -22,14 +21,14 @@
     text-decoration: none;
     font-weight: 500;
     transition: 0.2s;
+    font-family: "zen-loop";
+     font-weight: 400;
+  font-style: normal;
 
 }
 
 
-/* .link:hover,
-.link.active {
-    border-bottom: 2px solid white;
-} */
+
 .burgerIcon {
   display: none;
   cursor: pointer;
@@ -116,13 +115,7 @@
 }
 
 
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px;
-  background-color: darkblue;
-} */
+
 
 
 

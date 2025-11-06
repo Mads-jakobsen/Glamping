@@ -4,9 +4,20 @@ import Header from '../../components/Header/Header'
 
 export default function Stays() {
   return (
-    <div className={styles.background}>
-      <Header /> 
-      
-    </div>
+  
+        <div>
+          
+          <div className={styles.background}>
+            <Header /> 
+    
+          
+              
+           
+            
+          </div>
+    
+          
+          
+        </div>
   );
 }

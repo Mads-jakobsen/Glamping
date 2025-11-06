@@ -1,40 +1,75 @@
 import { useEffect, useState } from "react";
-import styles from './Review.module.css'
+import { Box, Typography } from "@mui/material";
 
-
-function ReviewCard({ name, review, stay, age }) {
+export function ReviewCard({ name, review, stay, age }) {
   return (
-    <div className={styles.reviewCard}>
-      <h2>{name}</h2>
-      <p><strong>Review:</strong> {review}</p>
-      <p><strong>Stay:</strong> {stay}</p>
-      <p><strong>Age:</strong> {age}</p>
-    </div>
+    <Box
+      sx={{
+        p: 2,
+        mb: 2,
+        borderRadius: 2,
+        backgroundColor: "#829B97",
+        color: "#FFF",
+        textAlign:"center"
+        
+      
+      }}
+    >
+      <Typography variant="h6" sx={{ fontWeight: 600, fontFamily:"zen-loop" }}>
+        {name}
+      </Typography>
+
+      <Typography variant="body1" fontFamily={"zen-loop"}>
+        <strong>Review:</strong> {review}
+      </Typography>
+      <Typography variant="body2" fontFamily={"zen-loop"}>
+        <strong>Stay:</strong> {stay}
+      </Typography>
+      <Typography variant="body2" fontFamily={"zen-loop"}>
+        <strong>Age:</strong> {age}
+      </Typography>
+    </Box>
   );
 }
-
 
 function Review() {
   const [reviews, setReviews] = useState([]);
 
-useEffect(() => {
-  const fetchReviews = async () => {
-    try {
-      const res = await fetch("http://localhost:3042/reviews"); 
-      const data = await res.json();
-      setReviews(data.data);
-    } catch (err) {
-      console.error("Fejl ved hentning af reviews:", err);
-    }
-  };
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch("http://localhost:3042/reviews");
+        const data = await res.json();
+        setReviews(data.data);
+      } catch (err) {
+        console.error("Fejl ved hentning af reviews:", err);
+      }
+    };
 
-  fetchReviews();
-}, []);
+    fetchReviews();
+  }, []);
 
   return (
+<Box sx={{ p: 3 }}>
 
 
-    <div>
+  
+
+      <Box
+        sx={{
+          mb: 3,
+          p: 2,
+          borderRadius: 2,
+          backgroundColor: "#C5B496",
+          color: "#FFF",
+          textAlign:"center",
+        }}
+      >
+
+        <Typography>Vores gæster udtaler</Typography>
+      </Box>
+
+
       {reviews.length > 0 ? (
         reviews.map((r) => (
           <ReviewCard
@@ -46,10 +81,11 @@ useEffect(() => {
           />
         ))
       ) : (
-        <p>Ingen reviews fundet.</p>
+        <Typography variant="body1">Ingen reviews fundet.</Typography>
       )}
-    </div>
+    </Box>
   );
 }
 
 export default Review;
+
