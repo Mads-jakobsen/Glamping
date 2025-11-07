@@ -58,7 +58,7 @@ const ContactForm = () => {
           variant="h5"
           sx={{
             color: '#fff',
-            fontFamily: 'zed-loop',
+            fontFamily: 'zen Loop',
             fontWeight: 'bold',
             letterSpacing: 1,
           }}
@@ -72,7 +72,7 @@ Eller har du blot et spørgsmål?
           variant="h5"
           sx={{
             color: '#fff',
-            fontFamily: 'zed-loop',
+            fontFamily: "'Nanum Gothic', sans-serif",
             fontWeight: 'bold',
             letterSpacing: 1,
           }}
@@ -141,7 +141,7 @@ Vi bestræber os på at svare på henvendelser indenfor 24 timer, men op til fer
               sx={{
                 backgroundColor: '#829B97',
                 color: '#fff',
-                fontFamily: 'zed-loop',
+                fontFamily: 'zen Loop',
                 '&:hover': {
                   backgroundColor: '#6B807A',
                 },

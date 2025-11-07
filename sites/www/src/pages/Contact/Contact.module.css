@@ -12,7 +12,12 @@ div{
 
 .h1Contact{
   padding: 10rem;
+       font-family: "Zen Loop";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
 }
+
 
 
 .headerLogo {

@@ -1,7 +1,49 @@
-.background {
+.backgroundStays {
 
   background-image: url('../../assets/image_01.jpg'); 
   background-size: cover;
   background-position: center;
   color: white;
+}
+
+.h1Stays{
+
+       font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  padding: 10rem;
+}
+
+
+
+.headerLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.logo {
+  height: 50px; 
+  margin-left: 8px;
+}
+
+.trip{
+  padding: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  
+  background-color: #33626C;
+  color: #FFF
+  
+}
+@media screen and (max-width:580px){
+  .h1Stays{
+
+    display: grid;
+    place-content: center;
+  }
+
 }

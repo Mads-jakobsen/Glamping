@@ -18,7 +18,7 @@
 
 
 
-h2{
+.h2Home{
      font-family: "Zen Loop", cursive;
   font-weight: 400;
   font-style: normal;
@@ -27,12 +27,13 @@ h2{
 
 
 
-h1 {
+.h1Home {
   margin: 20px 0 20px 0;  
      font-family: "Zen Loop", cursive;
-  font-weight: 400;
+  
   font-style: normal;
   font-size: 96px;
+
 
    
   

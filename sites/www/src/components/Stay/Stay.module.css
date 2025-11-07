@@ -1,13 +1,12 @@
 
 .stay{
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Nanum Gothic';
   font-weight: 400;
   text-align: center;
   
   background-color: #33626C;
-  color: #FFF
-  
-  
+  color: #FFF;
+
  
   
 }
@@ -19,11 +18,11 @@
 }
 
 
-h3{
+h1{
    font-family: "Zen Loop", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 64px;
+  font-size: 96px;
   
 
 
@@ -40,3 +39,4 @@ background-color: #829B97;
   margin-bottom: 20px;
 
 }
+

@@ -1,7 +1,48 @@
-.background {
 
+.background {
   background-image: url('../../assets/image_04.jpg'); 
   background-size: cover;
   background-position: center;
   color: white;
+}
+
+.headerLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px; 
+  margin-left: 8px;
+}
+
+.h1activities {
+  font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  padding: 10rem;
+  text-align: center;
+}
+
+
+.Activities {
+  padding: 20px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  background-color: #33626C;
+  color: #FFF;
+}
+
+
+
+/* Responsive */
+@media screen and (max-width:580px){
+  .h1activities {
+  display: grid;
+  place-content: center;
+
+  }
 }
