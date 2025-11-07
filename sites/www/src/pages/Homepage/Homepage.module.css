@@ -1,9 +1,13 @@
 .background {
-  background-image: url('../../assets/image_00.jpg'); 
+  background-image: 
+  linear-gradient(#4D4D4DA6, #4D4D4DA6),
+  url('../../assets/image_00.jpg'); 
+  background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #FFF;
+  
   
   
 }

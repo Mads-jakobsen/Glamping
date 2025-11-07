@@ -51,7 +51,7 @@ function ActivitiesAll() {
               />
             )}
             <div className={styles.imageTopBox}>
-              {activity.title || "Standard overskrift"}
+              {activity.title || "overskrift"}
             </div>
           </div>
 

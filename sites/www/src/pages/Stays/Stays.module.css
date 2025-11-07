@@ -1,6 +1,9 @@
 .backgroundStays {
 
-  background-image: url('../../assets/image_01.jpg'); 
+  background-image:
+  linear-gradient(#4D4D4DA6, #4D4D4DA6),
+   url('../../assets/image_01.jpg'); 
+   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
   color: white;
@@ -36,7 +39,8 @@
   text-align: center;
   
   background-color: #33626C;
-  color: #FFF
+  color: #FFF;
+  margin-bottom: 4rem;
   
 }
 @media screen and (max-width:580px){
