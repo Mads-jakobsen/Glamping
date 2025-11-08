@@ -6,6 +6,8 @@
   
   background-color: #33626C;
   color: #FFF;
+  padding: 25px;
+  
 
  
   
@@ -15,15 +17,17 @@
   max-width: 182px;
   width:100%;
   border-radius: 50%;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 
-h1{
+.h1Stay{
    font-family: "Zen Loop", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 96px;
-  
+  margin-bottom: 14px;
 
 
 }
@@ -36,7 +40,8 @@ background-color: #829B97;
   color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
-  margin-bottom: 20px;
+  
+  
 
 }
 

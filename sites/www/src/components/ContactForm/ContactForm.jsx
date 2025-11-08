@@ -55,11 +55,11 @@ const ContactForm = () => {
       >
         <Stack spacing={2}>
         <Typography
-          variant="h5"
+          variant="h2"
           sx={{
             color: '#fff',
             fontFamily: 'zen Loop',
-            fontWeight: 'bold',
+            fontSize: '64px',
             letterSpacing: 1,
           }}
         >
@@ -73,7 +73,7 @@ Eller har du blot et spørgsmål?
           sx={{
             color: '#fff',
             fontFamily: "'Nanum Gothic', sans-serif",
-            fontWeight: 'bold',
+            fontSize: '16px',
             letterSpacing: 1,
           }}
         >

@@ -32,8 +32,12 @@
   margin-left: 8px;
 }
 
+.trip h3{
+  padding:20px;
+}
+
 .trip{
-  padding: 20px;
+  padding: 30px;
     font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   text-align: center;

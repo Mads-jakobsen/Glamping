@@ -20,7 +20,7 @@ export default function Activities() {
           
               
              <div className={styles.h1activities}>
-                     <h1>Aktiviteter</h1>
+                     <h1 className={styles.h1activities}>Aktiviteter</h1>
                    </div>
             
           </div>

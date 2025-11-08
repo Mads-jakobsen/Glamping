@@ -61,26 +61,7 @@ const Trip = () => {
   Læs mere
 </Link>
 
-              <p>{stay.description}</p>
-              <div>
-                <p>
-                  <strong>Antal personer:</strong> {stay.numberOfPersons}
-                </p>
-                <p>
-                  <strong>Pris:</strong> {stay.price} DKK
-                </p>
-              </div>
-
-              {stay.includes && stay.includes.length > 0 && (
-                <div>
-                  <strong>Includes:</strong>
-                  <ul>
-                    {stay.includes.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            
             </div>
           );
         })}
