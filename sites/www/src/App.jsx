@@ -7,6 +7,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import Stays from "./pages/Stays/Stays";
 import Activities from "./pages/Activities/Activities";
 import Contact from "./pages/Contact/Contact";
+import Weekend from "./components/Detail/DetailWeekend/DetailWeekend";
 
 
 
@@ -19,10 +20,13 @@ return (
 <Routes>
 
 
+
     <Route path="/" element={<Homepage />} />
     <Route path="/Stays" element={<Stays />} />
     <Route path="/Activities" element={<Activities />} />
     <Route path="/Contact" element={<Contact />} />
+    <Route path="/trip/:id" element={<Weekend />} />
+    
     
 
 

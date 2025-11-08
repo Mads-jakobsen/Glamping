@@ -1,17 +1,14 @@
-import { useEffect, useState, useRef } from 'react';
-import styles from '../Trip/Trip.module.css'
-
+import { useEffect, useState } from 'react';
+import styles from '../Trip/Trip.module.css';
+import {Link} from 'react-router-dom'
 
 const Trip = () => {
   const [stays, setStays] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const hasFetched = useRef(false);
 
   // Hent alle stays
   useEffect(() => {
-    if (hasFetched.current) return;
-
     const fetchStays = async () => {
       try {
         const response = await fetch('http://localhost:3042/stays');
@@ -34,66 +31,62 @@ const Trip = () => {
     };
 
     fetchStays();
-    hasFetched.current = true;
   }, []);
 
   if (loading) return <p>Indlæser trips...</p>;
   if (error) return <p>{error}</p>;
 
-
   return (
-  <div>
-    {stays.length === 0 && <p>Ingen trips at vise</p>}
+    <div>
+      {stays.length === 0 && <p>Ingen trips at vise</p>}
 
-    <div className={styles.tripGrid}>
-      {stays.map((stay) => {
-        const imagePath = stay.image.startsWith('http')
-          ? stay.image
-          : `http://localhost:3042/images/${stay.image.replace(/^(images\/)+/, '')}`;
+      <div className={styles.tripGrid}>
+        {stays.map((stay) => {
+          const imagePath = stay.image.startsWith('http')
+            ? stay.image
+            : `http://localhost:3042/images/${stay.image.replace(/^(images\/)+/, '')}`;
 
-        return (
-          <div key={stay._id} className={styles.tripBox}>
-            
-            
-            <div className={styles.imageWrapper}>
-              <img className={styles.tripImage} src={imagePath} alt={stay.name} />
-              <div className={styles.imageTopBox}>
-                {stay.title || stay.name}
-                <div>{stay.numberOfPersons} personer</div>
-                <div>Fra {stay.price}</div>
+          return (
+            <div key={stay._id} className={styles.tripBox}>
+              <div className={styles.imageWrapper}>
+                <img className={styles.tripImage} src={imagePath} alt={stay.name} />
+                <div className={styles.imageTopBox}>
+                  {stay.title || stay.name}
+                  <div>{stay.numberOfPersons} personer</div>
+                  <div>Fra {stay.price}</div>
+                </div>
               </div>
-              
-            </div>
-            <button className={styles.readMoreButton}>Læs mere</button>
-            
 
-            
-            <p>{stay.description}</p>
-            <div>
-              <p>
-                <strong>Antal personer:</strong> {stay.numberOfPersons}
-              </p>
-              <p>
-                <strong>Pris:</strong> {stay.price} DKK
-              </p>
-            </div>
+              <Link to={`/trip/${stay._id}`} className={styles.readMoreButton}>
+  Læs mere
+</Link>
 
-            {stay.includes && stay.includes.length > 0 && (
+              <p>{stay.description}</p>
               <div>
-                <strong>Includes:</strong>
-                <ul>
-                  {stay.includes.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                <p>
+                  <strong>Antal personer:</strong> {stay.numberOfPersons}
+                </p>
+                <p>
+                  <strong>Pris:</strong> {stay.price} DKK
+                </p>
               </div>
-            )}
-          </div>
-        );
-      })}
+
+              {stay.includes && stay.includes.length > 0 && (
+                <div>
+                  <strong>Includes:</strong>
+                  <ul>
+                    {stay.includes.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Trip;
