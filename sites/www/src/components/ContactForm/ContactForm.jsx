@@ -39,18 +39,18 @@ const ContactForm = () => {
   }
 
   return (
-    <Box sx={{ my: 5 }}>
+    <Box sx={{ my: 0 }}>
     
       <Box
         sx={{
           backgroundColor: '#33626C',
-          borderRadius: 2,
-          maxWidth: 1400,
+          
+          maxWidth: 1600,
           mx: 'auto',
-          mb: 2,
+          mb: 1,
           p: 2,
           textAlign: 'center',
-          boxShadow: 3,
+          
         }}
       >
         <Stack spacing={2}>
@@ -88,7 +88,6 @@ Vi bestræber os på at svare på henvendelser indenfor 24 timer, men op til fer
         sx={{
           p: 4,
           backgroundColor: '#33626C',
-          borderRadius: 2,
           maxWidth: 1400,
           mx: 'auto',
           boxShadow: 3,

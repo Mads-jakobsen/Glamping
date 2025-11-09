@@ -79,15 +79,16 @@
     font-size: 1rem;
   }
 }
-@media (max-width: 355px) {
+@media (max-width: 340px) {
   .heroTitle {
     font-size: 0.7rem;   
-    padding: 5rem 1rem;     
+    
+         
   }
 
   .description {
     font-size: 0.85rem;    
-    padding: 0 0.5rem;
+    
   }
 
   .content {

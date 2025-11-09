@@ -40,8 +40,6 @@ export default function Family() {
       
       <Container
         sx={{
-          mb:4,
-          mt: 4,
           textAlign: "center",
           backgroundColor: "#33626C",
           color: "white",
@@ -92,6 +90,9 @@ backgroundColor:"#829B97"
   >
     Book nu
   </Button>
+  
+
+
 
   
       </Container>

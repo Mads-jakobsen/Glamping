@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
-import styles from './ActivitiesAll.module.css';
+import styles from "./ActivitiesAll.module.css";
+import { Link } from "react-router-dom";
 
 function ActivitiesAll() {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState({});
-  const [likes, setLikes] = useState({}); 
+  const [likes, setLikes] = useState({});
+  const [token, setToken] = useState(null);
 
+  
   useEffect(() => {
+    const storedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+    setLikes(storedLikes);
+
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+
     const fetchActivities = async () => {
       try {
         const res = await fetch("http://localhost:3042/activities");
@@ -22,15 +31,21 @@ function ActivitiesAll() {
         setLoading(false);
       }
     };
-    fetchActivities();
-  }, []);
 
-  const toggleAccordion = (id) => {
-    setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
+    fetchActivities();
+  }, []); // 
+
+  
+  const handleLike = (id) => {
+    setLikes((prev) => {
+      const newLikes = { ...prev, [id]: (prev[id] || 0) + 1 };
+      localStorage.setItem("likes", JSON.stringify(newLikes)); // gemmer likes
+      return newLikes;
+    });
   };
 
-  const handleLike = (id) => {
-    setLikes(prev => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  const toggleAccordion = (id) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   if (loading) return <p>Loading activities...</p>;
@@ -40,8 +55,6 @@ function ActivitiesAll() {
     <div className={styles.activitiesContainer}>
       {activities.map((activity) => (
         <div key={activity._id} className={styles.activityBox}>
-
-          
           <div className={styles.imageWrapper}>
             {activity.image && (
               <img
@@ -51,23 +64,21 @@ function ActivitiesAll() {
               />
             )}
             <div className={styles.imageTopBox}>
-              {activity.title || "overskrift"}
+              {activity.title || "Overskrift"}
             </div>
           </div>
 
-          
           <div className={styles.activityBlueBox}>
             <div className={styles.activityHeader}>
               <h3 className={styles.activityName}>
                 {activity.name || "Alle dage kl. 8:00 - 20:00"}
               </h3>
 
-              
               <button
                 className={styles.likeButton}
                 onClick={() => handleLike(activity._id)}
               >
-                ❤️ {likes[activity._id] || 0}
+                 <span className={styles.heart}>💙</span> {likes[activity._id] || 0}
               </button>
             </div>
 
@@ -84,9 +95,20 @@ function ActivitiesAll() {
               </p>
             )}
           </div>
-
         </div>
       ))}
+
+      <div className={styles.linkWrapper}>
+        {token ? (
+          <Link to="/mypage" className={styles.linkButton}>
+            Gå til min side
+          </Link>
+        ) : (
+          <Link to="/login" className={styles.linkButton}>
+            Log ind for at se din liste
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

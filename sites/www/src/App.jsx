@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Footer from "./components/Footer/Footer";
-import Styles from './App.module.css'
+import Styles from './App.module.css';
 import Homepage from "./pages/Homepage/Homepage";
 import Stays from "./pages/Stays/Stays";
 import Activities from "./pages/Activities/Activities";
@@ -10,19 +10,32 @@ import Contact from "./pages/Contact/Contact";
 import Weekend from "./components/Detail/DetailWeekend/DetailWeekend";
 import GetAway from "./components/Detail/DetailGetaway/DetailGetaway";
 import Family from "./components/Detail/DetailFamily/DetailFamily";
+import Login from "./components/Login/Login/Login";
+import MyPage from "./components/MyPage/Mypage";
 
+export default function App() {
+  const [token, setToken] = useState(null);
 
+  // Hent token fra localStorage når appen mountes
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) setToken(storedToken);
+  }, []);
 
+  const handleLogin = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setToken(newToken);
+  };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+  };
 
-export default function App(){
-return (
-<BrowserRouter>
- 
-<Routes>
-
-
-
+  return (
+    
+   <BrowserRouter>
+  <Routes>
     <Route path="/" element={<Homepage />} />
     <Route path="/Stays" element={<Stays />} />
     <Route path="/Activities" element={<Activities />} />
@@ -31,18 +44,25 @@ return (
     <Route path="/trip/:id" element={<GetAway />} />
     <Route path="/trip/:id" element={<Family />} />
     
+
+
     
 
+    
+        <Route
+          path="/login"
+          element={<Login token={token} onLogin={handleLogin} />}
+        />
 
-</Routes>
+        <Route
+          path="/mypage"
+          element={token ? <MyPage token={token} onLogout={handleLogout} /> : <Navigate to="/login" />}
+        />
 
-<Footer /> 
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
 
-
+  <Footer />
 </BrowserRouter>
-
-)
-
-
-
+  );
 }

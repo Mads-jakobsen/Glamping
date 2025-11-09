@@ -40,8 +40,6 @@ export default function GetAway() {
       
       <Container
         sx={{
-          mb:4,
-          mt: 4,
           textAlign: "center",
           backgroundColor: "#33626C",
           color: "white",
