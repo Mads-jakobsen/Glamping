@@ -33,16 +33,17 @@ function ActivitiesAll() {
     };
 
     fetchActivities();
-  }, []); // 
+  }, []); 
 
   
+
   const handleLike = (id) => {
-    setLikes((prev) => {
-      const newLikes = { ...prev, [id]: (prev[id] || 0) + 1 };
-      localStorage.setItem("likes", JSON.stringify(newLikes)); // gemmer likes
-      return newLikes;
-    });
-  };
+  setLikes((prev) => {
+    const newLikes = { ...prev, [id]: !prev[id] }; 
+    localStorage.setItem("likes", JSON.stringify(newLikes));
+    return newLikes;
+  });
+};
 
   const toggleAccordion = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -74,12 +75,14 @@ function ActivitiesAll() {
                 {activity.name || "Alle dage kl. 8:00 - 20:00"}
               </h3>
 
-              <button
-                className={styles.likeButton}
-                onClick={() => handleLike(activity._id)}
-              >
-                 <span className={styles.heart}>💙</span> {likes[activity._id] || 0}
-              </button>
+           <button
+  className={styles.likeButton}
+  onClick={() => handleLike(activity._id)}
+>
+  <span className={styles.heart}>
+    {likes[activity._id] ? "💙" : "🤍"}
+  </span>
+</button>
             </div>
 
             <button

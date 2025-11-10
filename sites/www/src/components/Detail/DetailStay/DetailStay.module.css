@@ -1,0 +1,58 @@
+.container {
+  font-family: 'Nanum Gothic';
+
+}
+
+.hero {
+  height: 400px;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.logo{
+  height: 50px;
+  margin-left: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.heroTitle {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 40px;
+
+
+}
+
+.content {
+  text-align: center;
+  background-color: #33626C;
+  color: white;
+  border-radius: 10px;
+  padding: 4rem;
+ 
+  max-width: 800px;
+}
+
+.content h5{
+  margin:7px;
+   font-family: 'Nanum Gothic';
+}
+
+
+
+.bookButton {
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #829B97;
+  font-family: 'Zen Loop';
+}

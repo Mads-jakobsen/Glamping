@@ -3,6 +3,7 @@ import styles from './Stays.module.css';
 import Header from '../../components/Header/Header'
 import Logo from '../../assets/logo.png'
 import Trip from "../../components/Trip/Trip";
+import {Link} from 'react-router-dom'
 
 export default function Stays() {
 return (
@@ -10,7 +11,7 @@ return (
      
       <div className={styles.backgroundStays}>
         <div className={styles.headerLogo}>
-          <img src={Logo} alt="Logo" className={styles.logo} />
+         <Link to="/"> <img src={Logo} alt="Logo" className={styles.logo} /></Link>
           <Header />
         </div>
         <div className={styles.h1Stays}>

@@ -11,7 +11,8 @@ import Weekend from "./components/Detail/DetailWeekend/DetailWeekend";
 import GetAway from "./components/Detail/DetailGetaway/DetailGetaway";
 import Family from "./components/Detail/DetailFamily/DetailFamily";
 import Login from "./components/Login/Login/Login";
-import MyPage from "./components/MyPage/Mypage";
+import MyPage from "./components/MyPage/MyPage";
+import DetailStay from "./components/Detail/DetailStay/DetailStay";
 
 export default function App() {
   const [token, setToken] = useState(null);
@@ -40,9 +41,8 @@ export default function App() {
     <Route path="/Stays" element={<Stays />} />
     <Route path="/Activities" element={<Activities />} />
     <Route path="/Contact" element={<Contact />} />
-    <Route path="/trip/:id" element={<Weekend />} />
-    <Route path="/trip/:id" element={<GetAway />} />
-    <Route path="/trip/:id" element={<Family />} />
+   
+    <Route path="/trip/:id" element ={<DetailStay /> } />
     
 
 

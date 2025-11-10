@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import Logo from '../../../assets/logo.png';
 import { Container, Typography, Button } from "@mui/material";
-import styles from './DetailFamily.module.css';
+import styles from '../DetailStay/DetailStay.module.css'
+
 
 export default function Family() {
   const { id } = useParams();
@@ -46,55 +47,45 @@ export default function Family() {
           borderRadius: 2,
           p: 4,
           fontFamily:"Nanum Gothic"
-          
         }}
       >
-        <Typography variant="h5" gutterBottom fontFamily={"zen Loop"}>
+        <Typography variant="h5" gutterBottom sx={{ fontFamily: "Zen Loop" }}>
           Tag væk en weekend, med én du holder af
         </Typography>
-        <Typography variant="body1" fontFamily={"zen Loop"}>
+          
+        <Typography variant="body1" sx={{ fontFamily: "Zen Loop" }}>
           {stay.description}
         </Typography>
        
-         {stay.includes && stay.includes.length > 0 && (
+        {stay.includes && stay.includes.length > 0 && (
           <ul>
             {stay.includes.map((item, index) => (
               <li key={index}>{item}</li>
-              
             ))}
           </ul>
         )}
 
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-    Pris: {stay.price} DKK
-  </Typography>
+        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+          Pris: {stay.price} DKK
+        </Typography>
 
-    <Button
-  
-    variant="contained"
-    color="secondary"
-    href="/contact"
-    sx={{ 
-      mt: 3,
-      p:2,
-     borderTopLeftRadius:'25px',
-     borderBottomRightRadius:'25px',
-     paddingLeft:'30px',
-     paddingRight:'30px',
-     fontFamily:"Zen Loop",
-
-backgroundColor:"#829B97"
-
-     }}
-    
-  >
-    Book nu
-  </Button>
-  
-
-
-
-  
+        <Button
+          variant="contained"
+          color="secondary"
+          href="/contact"
+          sx={{ 
+            mt: 3,
+            p:2,
+            borderTopLeftRadius:'25px',
+            borderBottomRightRadius:'25px',
+            paddingLeft:'30px',
+            paddingRight:'30px',
+            fontFamily:"Zen Loop",
+            backgroundColor:"#829B97"
+          }}
+        >
+          Book nu
+        </Button>
       </Container>
     </div>
   );

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import Logo from '../../../assets/logo.png';
 import { Container, Typography, Button } from "@mui/material";
-import styles from './DetailGetaway.module.css';
+import styles from '../DetailStay/DetailStay.module.css'
 
 export default function GetAway() {
   const { id } = useParams();
@@ -37,7 +37,6 @@ export default function GetAway() {
         <h1 className={styles.heroTitle}>{stay.title}</h1>
       </div>
 
-      
       <Container
         sx={{
           textAlign: "center",
@@ -45,53 +44,47 @@ export default function GetAway() {
           color: "white",
           borderRadius: 2,
           p: 4,
-          fontFamily:"Nanum Gothic"
-          
+          fontFamily: "Nanum Gothic"
         }}
       >
-        <Typography variant="h5" gutterBottom fontFamily={"zen Loop"}>
+        <Typography variant="h5" gutterBottom sx={{ fontFamily: "Zen Loop" }}>
           Tag væk en weekend, med én du holder af
         </Typography>
-        <Typography variant="body1" fontFamily={"zen Loop"}>
+
+        <Typography variant="body1" sx={{ fontFamily: "Zen Loop" }}>
           {stay.description}
         </Typography>
-       
-         {stay.includes && stay.includes.length > 0 && (
+
+        {stay.includes && stay.includes.length > 0 && (
           <ul>
             {stay.includes.map((item, index) => (
               <li key={index}>{item}</li>
-              
             ))}
           </ul>
         )}
 
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-    Pris: {stay.price} DKK
-  </Typography>
+        <Typography variant="h6" gutterBottom sx={{ mt: 2, fontFamily: "Zen Loop" }}>
+          Pris: {stay.price} DKK
+        </Typography>
 
-    <Button
-  
-    variant="contained"
-    color="secondary"
-    href="/contact"
-    sx={{ 
-      mt: 3,
-      p:2,
-     borderTopLeftRadius:'25px',
-     borderBottomRightRadius:'25px',
-     paddingLeft:'30px',
-     paddingRight:'30px',
-     fontFamily:"Zen Loop",
+        <Button
+          variant="contained"
+          color="secondary"
+          href="/contact"
+          sx={{ 
+            mt: 3,
+            p:2,
+            borderTopLeftRadius:'25px',
+            borderBottomRightRadius:'25px',
+            paddingLeft:'30px',
+            paddingRight:'30px',
+            fontFamily:"Zen Loop",
+            backgroundColor:"#829B97"
+          }}
+        >
+          Book nu
+        </Button>
 
-backgroundColor:"#829B97"
-
-     }}
-    
-  >
-    Book nu
-  </Button>
-
-  
       </Container>
     </div>
   );

@@ -18,26 +18,36 @@
 .logo {
   height: 50px; 
   margin-left: 8px;
+
 }
 
 .h1activities {
-  font-family: "Zen Loop", cursive;
+
+  padding: 7rem;
+  text-align: center;
+}
+.h1active{
+
+    font-family: "Zen Loop", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 64px;
-  padding: 7rem;
-  text-align: center;
+padding: 58px;
 }
 
 
 .Activities {
-  padding: 20px;
+  padding: 30px;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   text-align: center;
   background-color: #33626C;
   color: #FFF;
 }
+
+ .Activities p{
+  padding: 8px;
+ }
 
 
 

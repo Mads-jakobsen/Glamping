@@ -26,6 +26,7 @@
 .logo{
   height: 50px;
   margin-left: 8px;
+  margin-top: 8px;
 }
 
 
@@ -44,6 +45,157 @@
 
    
   
+}
+
+
+
+.activitiesContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.activityBlueBox {
+  position: relative; 
+  background-color: #33626C;
+  padding: 20px;
+  
+  color: white;
+  display: grid;
+    border-top-left-radius: 25px;
+   border-bottom-right-radius:25px;
+
+}
+
+.activityHeader {
+  display: flex;
+  
+  align-items: center;
+}
+
+
+.activityImage {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+.accordionButton {
+  background-color: #254b55;
+  color: #FFF;
+  border: none;
+
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  width: 150px;
+  font-size: 14px;
+  border-top-left-radius: 25px;
+   border-bottom-right-radius:25px;
+}
+
+.accordionButton:hover {
+  background-color: #1d3b45;
+}
+
+.accordionButton::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid white; 
+  transition: transform 0.3s;
+}
+
+.accordionButton.expanded::after {
+  transform: rotate(180deg);
+}
+
+.activityDescription {
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+  width: 100%;
+}
+
+.activityName {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.placeholderBox {
+  background-color: #4A7C85; 
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.imageWrapper {
+  position: relative; 
+}
+
+.like-image {
+  max-width: 500px;
+  width: 100%;
+}
+
+
+.likeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  border: none;
+  border-radius: 12px;
+    background-color: rgba(51, 153, 255, 0.2);
+  
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.heartLiked {
+  color: #fff; 
+}
+
+.activityImage {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.imageTopBox {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20%);
+background-color: #C5B496;
+  color: white;
+  padding: 30px;
+  
+  font-weight: bold;
+  border-top-left-radius: 25px;
+   border-bottom-right-radius:25px;
+  
+}
+
+
+@media screen and (max-width:580px){
+  .accordionButton {
+    
+    justify-content: center;
+  }
 }
 
 
