@@ -40,7 +40,7 @@ export default function Login({ token, onLogin }) {
       </div>
 
       <div>
-        <h3>Login på din bruger</h3>
+        <h3>Log ind på din bruger</h3>
 
         <Box
           component="form"

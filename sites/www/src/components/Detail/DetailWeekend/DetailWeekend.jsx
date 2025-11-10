@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import Logo from '../../../assets/logo.png';
 import { Container, Typography, Button } from "@mui/material";
 import styles from '../DetailStay/DetailStay.module.css'
+
+
 
 export default function Weekend() {
   const { id } = useParams();
@@ -30,7 +32,7 @@ export default function Weekend() {
       
       <div className={styles.hero} style={{ '--bg-image': `url(${imageUrl})` }}>
         <div className={styles.header}>
-          <img src={Logo} alt="Logo" className={styles.logo} />
+          <Link to="/"> <img src={Logo} alt="Logo" className={styles.logo} /></Link>
           <Header />
         </div>
 

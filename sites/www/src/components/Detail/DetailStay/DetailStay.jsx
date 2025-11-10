@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import Logo from '../../../assets/logo.png';
 import { Container, Typography, Button } from "@mui/material";
@@ -32,7 +32,7 @@ export default function DetailStay() {
         style={{ '--bg-image': `url(${imageUrl})` }}
       >
         <div className={styles.header}>
-          <img src={Logo} alt="Logo" className={styles.logo} />
+         <Link to="/"> <img src={Logo} alt="Logo" className={styles.logo} /></Link>
           <Header />
         </div>
         <h1 className={styles.heroTitle}>{stay.title}</h1>
