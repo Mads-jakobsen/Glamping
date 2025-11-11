@@ -3,6 +3,7 @@ import styles from './MyPage.module.css';
 import Header from "../Header/Header";
 import Logo from '../../assets/logo.png';
 import { Box, Typography, Button } from "@mui/material";
+import {Link } from'react-router-dom'
 
 export default function MyPage({ token, onLogout }) {
   const [userData, setUserData] = useState(null);
@@ -66,7 +67,7 @@ export default function MyPage({ token, onLogout }) {
     <div>
       <div className={styles.backgroundMyPage}>
         <div className={styles.MyLogo}>
-          <img src={Logo} alt="Logo" className={styles.logo} />
+          <Link to="/"> <img src={Logo} alt="Logo" className={styles.logo} /></Link>
           <Header />
         </div>
 

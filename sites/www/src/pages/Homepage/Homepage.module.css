@@ -56,6 +56,8 @@
   font-weight: 400;
   font-style: normal;
   font-size: 48px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
   
 
 }
