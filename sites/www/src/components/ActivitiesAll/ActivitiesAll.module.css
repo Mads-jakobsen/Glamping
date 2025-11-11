@@ -108,24 +108,35 @@
   width: 100%;
 }
 
+.linkButton{background-color: #829B97;
+color:white;
+padding: 14px;
+border-top-left-radius: 25px;
+border-bottom-right-radius: 25px;
+}
+
 
 .likeButton {
+  
+  
   position: absolute;
   top: 10px;
   right: 10px;
 
   border: none;
   border-radius: 12px;
-    background-color: rgba(51, 153, 255, 0.2);
+    background-color: rgba(213, 211, 211, 0.095);
   
   font-weight: bold;
-  cursor: pointer;
+  
   transition: transform 0.2s;
 }
 
 .heartLiked {
   color: #fff; 
 }
+
+
 
 .activityImage {
   width: 100%;
@@ -152,5 +163,11 @@ background-color: #C5B496;
   .accordionButton {
     
     justify-content: center;
+  }
+}
+
+@media screen and (max-width:400px){
+  .activityName{
+    font-size: 15px;
   }
 }

@@ -128,7 +128,7 @@ export default function MyPage({ token, onLogout }) {
                       className={styles.likeButton}
                       onClick={() => removeLike(activity._id)}
                     >
-                      💙
+                      🤍
                     </button>
                   </div>
 

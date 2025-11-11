@@ -87,7 +87,7 @@ function ActivitiesAll() {
   onClick={() => handleLike(activity._id)}
 >
   <span className={styles.heart}>
-    {likes[activity._id] ? "💙" : "🤍"}
+    {likes[activity._id] ? "🤍" : "🩶"}
   </span>
 </button>
             </div>
@@ -115,7 +115,7 @@ function ActivitiesAll() {
           </Link>
         ) : (
           <Link to="/login" className={styles.linkButton}>
-            Log ind for at se din liste
+             Min liste
           </Link>
         )}
       </div>

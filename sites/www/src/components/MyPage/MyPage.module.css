@@ -198,6 +198,12 @@ background-color: #C5B496;
   }
 }
 
+@media screen and (max-width:400px){
+  .activityName{
+    font-size: 15px;
+  }
+}
+
 
 
 
