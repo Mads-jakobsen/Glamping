@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./ActivitiesAll.module.css";
 import { Link } from "react-router-dom";
 
+
+// funktion aktivesall og state der gemmer og react hooks set opdatere
+
 function ActivitiesAll() {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,20 +13,22 @@ function ActivitiesAll() {
   const [likes, setLikes] = useState({});
   const [token, setToken] = useState(null);
 
-  
+  // useeffekt til at udføre side effekter her fetch
   useEffect(() => {
-    const storedLikes = JSON.parse(localStorage.getItem("likes")) || {};
-    setLikes(storedLikes);
+    const storedLikes = JSON.parse(localStorage.getItem("likes")) || {}; // henter hvad der er blevet gemt i localstorage 
+    setLikes(storedLikes); // gemmer
 
-    const storedToken = localStorage.getItem("token");
-    setToken(storedToken);
+    const storedToken = localStorage.getItem("token"); // henter token der er gemt
+    setToken(storedToken); // gemmer token
+
+    // async fuktion henter fra aktiviter og ellers en fejl og loading bliver sat til false
 
     const fetchActivities = async () => {
       try {
         const res = await fetch("http://localhost:3042/activities");
         if (!res.ok) throw new Error("Netværksfejl: " + res.status);
-        const result = await res.json();
-        setActivities(result.data || []);
+        const result = await res.json(); // await venter svar og det bliver lavet til json data
+        setActivities(result.data || []); // odtere med aktiviteter eller tom liste hvis ingen
       } catch (err) {
         console.error(err);
         setError(err);
@@ -35,7 +40,7 @@ function ActivitiesAll() {
     fetchActivities();
   }, []); 
 
-  
+//opdater likes   og gemmer nye likes i localstorage
 
   const handleLike = (id) => {
   setLikes((prev) => {
@@ -44,6 +49,8 @@ function ActivitiesAll() {
     return newLikes;
   });
 };
+
+// setexpended sætter det til det modsatte af af vad det var
 
   const toggleAccordion = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));

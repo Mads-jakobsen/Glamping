@@ -2,26 +2,31 @@ import { useEffect, useState } from 'react';
 import styles from '../Trip/Trip.module.css';
 import {Link} from 'react-router-dom'
 
+// trip component
+
 const Trip = () => {
   const [stays, setStays] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Hent alle stays
+  // async  funktion Henter data
+  
   useEffect(() => {
     const fetchStays = async () => {
       try {
         const response = await fetch('http://localhost:3042/stays');
-        const data = await response.json();
+        const data = await response.json(); // json data
+
+//hvis ok forsæt kun unikke ider gemmes
 
         if (data.status === 'ok') {
           const uniqueStays = data.data.filter(
             (stay, index, self) =>
               index === self.findIndex((s) => s._id === stay._id)
           );
-          setStays(uniqueStays);
+          setStays(uniqueStays); // gemmer id
         } else {
-          setError(data.message || 'Fejl ved hentning af stays');
+          setError(data.message || 'Fejl ved hentning af stays'); // fejl og besked
         }
       } catch (err) {
         setError(err.message);
@@ -30,11 +35,13 @@ const Trip = () => {
       }
     };
 
-    fetchStays();
+    fetchStays(); // henter stay
   }, []);
 
   if (loading) return <p>Indlæser trips...</p>;
   if (error) return <p>{error}</p>;
+
+  // mapper stay ser om billedesti har et  url ellers laver den en url
 
   return (
     <div>

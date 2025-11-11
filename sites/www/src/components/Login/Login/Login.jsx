@@ -5,17 +5,24 @@ import Logo from '../../../assets/logo.png';
 import { TextField, Button, Box, Typography, Snackbar, Alert } from "@mui/material";
 import styles from '../Login/Login.module.css'
 
+
+// login funktion token onlogin er props react hooks email password er tom til at starte med ""
+
 export default function Login({ token, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorOpen, setErrorOpen] = useState(false); 
   const navigate = useNavigate();
 
+// hvis der er en token går den til mypage
+
   useEffect(() => {
     if (token) {
       navigate("/mypage"); 
     }
   }, [token]);
+
+  // tjekker login e prevent forhindre reload logger ind eller viser fejl
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +33,8 @@ export default function Login({ token, onLogin }) {
       setErrorOpen(true); 
     }
   };
+
+  // clikaway bruger klikker udenfor beskeden den lukkes efter timeout eller at klikke på beskeden 
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') return;

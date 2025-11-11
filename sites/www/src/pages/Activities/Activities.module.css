@@ -35,9 +35,15 @@
 padding: 58px;
 }
 
+.Activities h2{
+  font-family: "Zen Loop";
+  font-size: 64px;
+
+}
+
 
 .Activities {
-  padding: 30px;
+  padding: 10px;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   text-align: center;
@@ -46,7 +52,7 @@ padding: 58px;
 }
 
  .Activities p{
-  padding: 8px;
+  padding: 4px;
  }
 
 

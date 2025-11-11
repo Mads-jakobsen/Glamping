@@ -7,29 +7,37 @@ import styles from '../DetailStay/DetailStay.module.css'
 
 
 export default function Family() {
-  const { id } = useParams();
+  const { id } = useParams(); // react hook henter parameter fra url som er id
   const [stay, setStay] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3042/stays")
-      .then(res => res.json())
+    fetch("http://localhost:3042/stays") // henter alle stay
+      .then(res => res.json()) // json data
       .then(data => {
-        const foundStay = data.data.find(s => s._id === id);
+        const foundStay = data.data.find(s => s._id === id); // finder det der passer med id
         setStay(foundStay || null);
       })
       .catch(err => console.error(err));
-  }, [id]);
+  }, [id]); // ændres id henter den ny
 
   if (!stay) return <p>Ingen data</p>;
+
+  // imageurl true hvis den starter med http
 
   const imageUrl = stay.image.startsWith('http')
     ? stay.image
     : `http://localhost:3042/stays/${stay.image}`;
 
+
+    // --bg-image sætter baggrunds billede via css variabel
+
+    // mui comoponenter
+
   return (
     <div className={styles.container}>
       
-      <div className={styles.hero} style={{ '--bg-image': `url(${imageUrl})` }}>
+      
+      <div className={styles.hero} style={{ '--bg-image': `url(${imageUrl})` }}> 
         <div className={styles.header}>
           <Link to="/"><img src={Logo} alt="Logo" className={styles.logo} /></Link>
           <Header />
@@ -37,6 +45,8 @@ export default function Family() {
 
         <h1 className={styles.heroTitle}>{stay.title}</h1>
       </div>
+
+
 
       
       <Container

@@ -10,6 +10,9 @@ export default function MyPage({ token, onLogout }) {
   const [likedActivities, setLikedActivities] = useState([]);
   const [expanded, setExpanded] = useState({});
 
+
+  // tjekker om der er en token hvis der er, er bruger logget ind
+
   useEffect(() => {
     const storedToken = token || localStorage.getItem("token");
 
@@ -20,43 +23,56 @@ export default function MyPage({ token, onLogout }) {
       });
     }
 
-    const likes = JSON.parse(localStorage.getItem("likes")) || {};
-    const likedIds = Object.keys(likes);
+    const likes = JSON.parse(localStorage.getItem("likes")) || {}; // henter likes hvis der er nogle ellers vises ingen  
+    const likedIds = Object.keys(likes); // dem som er likeet
+
+    // henter
 
     const fetchLikedActivities = async () => {
       try {
         const res = await fetch("http://localhost:3042/activities");
-        const result = await res.json();
+        const result = await res.json(); // json data
         const allActivities = result.data || [];
 
-        const liked = allActivities.filter((a) => likedIds.includes(a._id));
-        setLikedActivities(liked);
+        const liked = allActivities.filter((a) => likedIds.includes(a._id)); // tjekker om dem der er liket er der 
+        setLikedActivities(liked); // opdater
       } catch (err) {
-        console.error(err);
+        console.error(err); // fejl ved fetch
       }
     };
 
-    fetchLikedActivities();
-  }, [token]);
+    fetchLikedActivities(); // kalder funktion indenfor useeffect
+  }, [token]); // køre når componeenten vises på siden første gang
+
+
+// hvis ingen token er i state og lcalstorage kommer  besked
 
   if (!token && !localStorage.getItem("token")) {
     return <p>Du skal være logget ind for at se denne side.</p>;
   }
+
+// fjerner token fra localstorage og logger ud
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     onLogout();
   };
 
+  // Fjerner aktivitet fra liked
+
   const removeLike = (activityId) => {
     setLikedActivities((prev) =>
       prev.filter((activity) => activity._id !== activityId)
     );
 
+    // fjerner aktivitet fra localstorage
+
     const likes = JSON.parse(localStorage.getItem("likes")) || {};
     delete likes[activityId];
     localStorage.setItem("likes", JSON.stringify(likes));
   };
+
+  // tager et id og skifter mellem åben og lukket true og false
 
   const toggleAccordion = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));

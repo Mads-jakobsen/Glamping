@@ -33,7 +33,9 @@
 }
 
 .trip h3{
-  padding:20px;
+  
+  font-size: 64px;
+  font-family: 'zen Loop';
 }
 
 .trip{

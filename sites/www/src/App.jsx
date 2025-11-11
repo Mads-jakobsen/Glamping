@@ -17,16 +17,18 @@ import DetailStay from "./components/Detail/DetailStay/DetailStay";
 export default function App() {
   const [token, setToken] = useState(null);
 
-  // Hent token fra localStorage når appen mountes
+  // ser om bruger er logget ind og gemmer token i state
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) setToken(storedToken);
+    const storedToken = localStorage.getItem("token"); // henter token hvis der er en fra localstorage
+    if (storedToken) setToken(storedToken); // hvis der er en opdatrer
   }, []);
 
   const handleLogin = (newToken) => {
     localStorage.setItem("token", newToken);
     setToken(newToken);
   };
+
+// fjerner token fra local storage og logger ud
 
   const handleLogout = () => {
     localStorage.removeItem("token");
