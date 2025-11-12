@@ -5,6 +5,8 @@ import Logo from '../../assets/logo.png';
 import { Box, Typography, Button } from "@mui/material";
 import {Link } from'react-router-dom'
 
+// my page funktion der modtager props token og onlogout  state og react hooks 
+
 export default function MyPage({ token, onLogout }) {
   const [userData, setUserData] = useState(null);
   const [likedActivities, setLikedActivities] = useState([]);
