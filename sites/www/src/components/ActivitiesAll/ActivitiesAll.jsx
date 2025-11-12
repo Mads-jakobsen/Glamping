@@ -59,6 +59,9 @@ function ActivitiesAll() {
   if (loading) return <p>Loading activities...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  // mapper igennem activities og viser keys activity_id hvert får et id
+  // hvis bruger har klikket på læs mere og expanded activity id er true viser den ellers ikke 
+
   return (
     <div className={styles.activitiesContainer}>
       {activities.map((activity) => (

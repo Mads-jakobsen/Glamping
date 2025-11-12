@@ -30,11 +30,11 @@ export default function MyPage({ token, onLogout }) {
 
     const fetchLikedActivities = async () => {
       try {
-        const res = await fetch("http://localhost:3042/activities");
+        const res = await fetch("http://localhost:3042/activities"); // henter alle
         const result = await res.json(); // json data
         const allActivities = result.data || [];
 
-        const liked = allActivities.filter((a) => likedIds.includes(a._id)); // tjekker om dem der er liket er der 
+        const liked = allActivities.filter((a) => likedIds.includes(a._id)); //tjekker om dem der er liket er der og viser kun dem
         setLikedActivities(liked); // opdater
       } catch (err) {
         console.error(err); // fejl ved fetch
@@ -45,7 +45,7 @@ export default function MyPage({ token, onLogout }) {
   }, [token]); // køre når componeenten vises på siden første gang
 
 
-// hvis ingen token er i state og lcalstorage kommer  besked
+// hvis ingen token er i state og localstorage kommer  besked
 
   if (!token && !localStorage.getItem("token")) {
     return <p>Du skal være logget ind for at se denne side.</p>;
@@ -78,6 +78,12 @@ export default function MyPage({ token, onLogout }) {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+
+
+  
+  // mapper likedactivities igennem og viser keys activity_id hvert får et id
+    //  hvis bruger har klikket på læs mere og expanded activity id er true viser den ellers ikke
+
   return (
     <>
     <div>
@@ -100,6 +106,8 @@ export default function MyPage({ token, onLogout }) {
         >
           <Typography variant="h5">Antal aktiviteter på listen: {likedActivities.length}</Typography>
         </Box>
+
+        
 
         <div className={styles.activitiesContainer}>
           {likedActivities.length > 0 ? (

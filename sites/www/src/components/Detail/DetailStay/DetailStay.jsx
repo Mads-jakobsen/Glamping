@@ -5,24 +5,36 @@ import Logo from '../../../assets/logo.png';
 import { Container, Typography, Button } from "@mui/material";
 import styles from './DetailStay.module.css';
 
+
+// funktion state react hooks
+
 export default function DetailStay() {
   const { id } = useParams();
   const [stay, setStay] = useState(null);
 
+  // henter data alle fra stays
+
   useEffect(() => {
     fetch("http://localhost:3042/stays")
-      .then(res => res.json())
+      .then(res => res.json()) // til json data
       .then(data => {
-        const foundStay = data.data.find(s => s._id === id);
-        setStay(foundStay || null);
+        const foundStay = data.data.find(s => s._id === id); // ser om det passer med det id
+        setStay(foundStay || null); // viser ophold eller null
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err)); // fejl
   }, [id]);
 
   if (!stay) return <p>Ingen data</p>;
+
+  // url srater med http
+
   const imageUrl = stay.image.startsWith('http')
     ? stay.image
     : `http://localhost:3042/stays/${stay.image}`;
+
+    // sætter dynamisk baggrundsbillede via css variabel
+
+    // hvis stay.includes findes og længden er større end 0 mapper den igennem includes og laver en li med item 
 
   return (
   <div>
